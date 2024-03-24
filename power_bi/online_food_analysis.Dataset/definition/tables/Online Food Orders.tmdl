@@ -11,6 +11,21 @@ table 'Online Food Orders'
 
 		annotation PBI_FormatHint = {"isDecimal":true}
 
+	measure 'Total Positive Orders' = CALCULATE([Total Orders], 'Online Food Orders'[Feedback] = "Positive")
+		formatString: 0
+		lineageTag: e048b0c9-f4ac-4c22-aa79-a9319f9fed27
+
+	measure 'Customer Order Satisfaction' = ```
+			
+			    DIVIDE ( 
+			        [Total Positive Orders],
+			        [Total Orders],
+			        BLANK()
+			    )
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: c523627f-d489-457d-b545-a5fe08a8abb0
+
 	column Index
 		dataType: int64
 		isHidden
