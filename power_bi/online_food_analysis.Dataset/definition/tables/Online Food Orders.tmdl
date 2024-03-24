@@ -1,0 +1,135 @@
+table 'Online Food Orders'
+	lineageTag: 03899d5f-8a2d-423c-b7b5-64418eac7751
+
+	measure 'Total Orders' = COUNTROWS ( 'Online Food Orders' )
+		formatString: 0
+		lineageTag: da34af33-b95f-42c5-8ca1-6fc50831dcce
+
+	measure 'Avg Family Size' = AVERAGE ( 'Online Food Orders'[Family Size] )
+		formatString: 0
+		lineageTag: a610779e-1194-4622-860a-4cb8b22a9d5f
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column Index
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: c62c3a38-93e3-4b36-9216-715559e2c719
+		summarizeBy: sum
+		sourceColumn: Index
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Age
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: a983c80d-7533-49b2-812f-d543c73ff26b
+		summarizeBy: sum
+		sourceColumn: Age
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Family Size'
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: eff11f1a-bed0-48c5-9389-3a44eab2be45
+		summarizeBy: sum
+		sourceColumn: Family Size
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Feedback
+		dataType: string
+		lineageTag: 0642f8e6-2dc3-467c-abd9-b19d0b273dc0
+		summarizeBy: none
+		sourceColumn: Feedback
+
+		annotation SummarizationSetBy = Automatic
+
+	column GenderID
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: ff11dc57-3e13-4516-a3ba-8f7156ed23b2
+		summarizeBy: none
+		sourceColumn: GenderID
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column MaritalStatusID
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 20ffab61-7ad9-40a2-be38-e839df851dba
+		summarizeBy: none
+		sourceColumn: MaritalStatusID
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column OccupationID
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: f0b517d3-e343-43d0-a5d0-586c4c5edd08
+		summarizeBy: none
+		sourceColumn: OccupationID
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column StudiesID
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: d7dba12a-b9e7-4162-b60c-16daa3fd9c1d
+		summarizeBy: none
+		sourceColumn: StudiesID
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Online Food Orders' = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(Web.Contents("https://raw.githubusercontent.com/jeanguerrapty/online_food_analysis/main/transformed_data/cleaned_onlinefoods.csv"),[Delimiter=",", Columns=8, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"age", Int64.Type}, {"gender", type text}, {"marital_status", type text}, {"occupation", type text}, {"educational_qualifications", type text}, {"family_size", Int64.Type}, {"output", type text}, {"feedback", type text}}),
+				    #"Added Index" = Table.AddIndexColumn(#"Changed Type", "Index", 1, 1, Int64.Type),
+				    #"Renamed Columns" = Table.RenameColumns(#"Added Index",{{"age", "Age"}, {"gender", "Gender"}, {"marital_status", "Marital Status"}, {"occupation", "Occupation"}, {"educational_qualifications", "Studies"}, {"family_size", "Family Size"}, {"feedback", "Feedback"}}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Renamed Columns",{"output"}),
+				    #"Replaced Value" = Table.ReplaceValue(#"Removed Columns","House wife","House Wife",Replacer.ReplaceText,{"Occupation"}),
+				    #"Merged Queries" = Table.NestedJoin(#"Replaced Value", {"Gender"}, Gender, {"Gender"}, "Gender.1", JoinKind.LeftOuter),
+				    #"Expanded Gender.1" = Table.ExpandTableColumn(#"Merged Queries", "Gender.1", {"GenderID"}, {"GenderID"}),
+				    #"Removed Columns1" = Table.RemoveColumns(#"Expanded Gender.1",{"Gender"}),
+				    #"Merged Queries1" = Table.NestedJoin(#"Removed Columns1", {"Marital Status"}, #"Marital Status", {"Marital Status"}, "Marital Status.1", JoinKind.LeftOuter),
+				    #"Expanded Marital Status.1" = Table.ExpandTableColumn(#"Merged Queries1", "Marital Status.1", {"MaritalStatusID"}, {"MaritalStatusID"}),
+				    #"Removed Columns2" = Table.RemoveColumns(#"Expanded Marital Status.1",{"Marital Status"}),
+				    #"Merged Queries2" = Table.NestedJoin(#"Removed Columns2", {"Occupation"}, Occupation, {"Occupation"}, "Occupation.1", JoinKind.LeftOuter),
+				    #"Merged Queries3" = Table.NestedJoin(#"Merged Queries2", {"Studies"}, Studies, {"Studies"}, "Studies.1", JoinKind.LeftOuter),
+				    #"Expanded Occupation.1" = Table.ExpandTableColumn(#"Merged Queries3", "Occupation.1", {"OccupationID"}, {"OccupationID"}),
+				    #"Expanded Studies.1" = Table.ExpandTableColumn(#"Expanded Occupation.1", "Studies.1", {"StudiesID"}, {"StudiesID"}),
+				    #"Removed Columns3" = Table.RemoveColumns(#"Expanded Studies.1",{"Occupation", "Studies"}),
+				    #"Reordered Columns" = Table.ReorderColumns(#"Removed Columns3",{"Index", "Age", "Family Size", "Feedback", "GenderID", "MaritalStatusID", "OccupationID", "StudiesID"})
+				in
+				    #"Reordered Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

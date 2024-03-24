@@ -1,0 +1,96 @@
+{
+  "config": "{\"version\":\"5.51\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY24SU02\",\"version\":\"5.51\",\"type\":2}},\"activeSectionIndex\":0,\"defaultDrillFilterOtherVisuals\":true,\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"useStylableVisualContainerHeader\":true,\"queryLimitOption\":6,\"useEnhancedTooltips\":true,\"exportDataMode\":1,\"useDefaultAggregateDisplayName\":true},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}]}}",
+  "layoutOptimization": 0,
+  "resourcePackages": [
+    {
+      "resourcePackage": {
+        "disabled": false,
+        "items": [
+          {
+            "name": "CY24SU02",
+            "path": "BaseThemes/CY24SU02.json",
+            "type": 202
+          }
+        ],
+        "name": "SharedResources",
+        "type": 2
+      }
+    }
+  ],
+  "sections": [
+    {
+      "config": "{}",
+      "displayName": "Page 1",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "ReportSection",
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"541f0af33daf5349161f\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":0,\"z\":5,\"width\":1280,\"height\":54.46808510638298,\"tabOrder\":5}}],\"singleVisual\":{\"visualType\":\"textbox\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"Online Food Analysis\",\"textStyle\":{\"fontWeight\":\"bold\",\"fontFamily\":\"Arial\",\"fontSize\":\"28pt\"}}],\"horizontalTextAlignment\":\"center\"}]}}]}}}",
+          "filters": "[]",
+          "height": 54.47,
+          "width": 1280.00,
+          "x": 0.00,
+          "y": 0.00,
+          "z": 5.00
+        },
+        {
+          "config": "{\"name\":\"58da007d6fcf391f880f\",\"layouts\":[{\"id\":0,\"position\":{\"x\":640,\"y\":54.46808510638298,\"z\":6,\"width\":280.1215805471125,\"height\":120.60790273556232,\"tabOrder\":6}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Online Food Orders.Avg Family Size\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"o\",\"Entity\":\"Online Food Orders\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"o\"}},\"Property\":\"Avg Family Size\"},\"Name\":\"Online Food Orders.Avg Family Size\",\"NativeReferenceName\":\"Avg Family Size\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"o\"}},\"Property\":\"Avg Family Size\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 120.61,
+          "width": 280.12,
+          "x": 640.00,
+          "y": 54.47,
+          "z": 6.00
+        },
+        {
+          "config": "{\"name\":\"6fe55a67d29818ea4613\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":432.7993920972645,\"z\":4,\"width\":640,\"height\":270.3951367781155,\"tabOrder\":4}}],\"singleVisual\":{\"visualType\":\"donutChart\",\"projections\":{\"Y\":[{\"queryRef\":\"Online Food Orders.Total Orders\"}],\"Category\":[{\"queryRef\":\"Occupation.Occupation\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"o\",\"Entity\":\"Online Food Orders\",\"Type\":0},{\"Name\":\"o1\",\"Entity\":\"Occupation\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"o\"}},\"Property\":\"Total Orders\"},\"Name\":\"Online Food Orders.Total Orders\",\"NativeReferenceName\":\"Total Orders\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"o1\"}},\"Property\":\"Occupation\"},\"Name\":\"Occupation.Occupation\",\"NativeReferenceName\":\"Occupation\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"o\"}},\"Property\":\"Total Orders\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 270.40,
+          "width": 640.00,
+          "x": 0.00,
+          "y": 432.80,
+          "z": 4.00
+        },
+        {
+          "config": "{\"name\":\"9835006fb1bb26cd3a5a\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":175.0759878419453,\"z\":1,\"width\":640,\"height\":245.10638297872342,\"tabOrder\":1}}],\"singleVisual\":{\"visualType\":\"donutChart\",\"projections\":{\"Category\":[{\"queryRef\":\"Gender.Gender\",\"active\":true}],\"Y\":[{\"queryRef\":\"Online Food Orders.Total Orders\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"o\",\"Entity\":\"Online Food Orders\",\"Type\":0},{\"Name\":\"g\",\"Entity\":\"Gender\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"g\"}},\"Property\":\"Gender\"},\"Name\":\"Gender.Gender\",\"NativeReferenceName\":\"Gender\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"o\"}},\"Property\":\"Total Orders\"},\"Name\":\"Online Food Orders.Total Orders\",\"NativeReferenceName\":\"Total Orders\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"o\"}},\"Property\":\"Total Orders\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 245.11,
+          "width": 640.00,
+          "x": 0.00,
+          "y": 175.08,
+          "z": 1.00
+        },
+        {
+          "config": "{\"name\":\"b734c65d229368c9125b\",\"layouts\":[{\"id\":0,\"position\":{\"x\":640,\"y\":432.7993920972645,\"z\":3,\"width\":640,\"height\":270.3951367781155,\"tabOrder\":3}}],\"singleVisual\":{\"visualType\":\"donutChart\",\"projections\":{\"Category\":[{\"queryRef\":\"Studies.Studies\",\"active\":true}],\"Y\":[{\"queryRef\":\"Online Food Orders.Total Orders\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"o\",\"Entity\":\"Online Food Orders\",\"Type\":0},{\"Name\":\"s\",\"Entity\":\"Studies\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"o\"}},\"Property\":\"Total Orders\"},\"Name\":\"Online Food Orders.Total Orders\",\"NativeReferenceName\":\"Total Orders\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"Studies\"},\"Name\":\"Studies.Studies\",\"NativeReferenceName\":\"Studies\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"o\"}},\"Property\":\"Total Orders\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 270.40,
+          "width": 640.00,
+          "x": 640.00,
+          "y": 432.80,
+          "z": 3.00
+        },
+        {
+          "config": "{\"name\":\"dd7e2f715ec1fc128add\",\"layouts\":[{\"id\":0,\"position\":{\"x\":359.87841945288756,\"y\":54.46808510638298,\"z\":0,\"width\":280.1215805471125,\"height\":120.60790273556232,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Online Food Orders.Total Orders\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"o\",\"Entity\":\"Online Food Orders\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"o\"}},\"Property\":\"Total Orders\"},\"Name\":\"Online Food Orders.Total Orders\",\"NativeReferenceName\":\"Total Orders\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"o\"}},\"Property\":\"Total Orders\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 120.61,
+          "width": 280.12,
+          "x": 359.88,
+          "y": 54.47,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"f08cdc91a71fe61c988f\",\"layouts\":[{\"id\":0,\"position\":{\"x\":640,\"y\":175.0759878419453,\"z\":2,\"width\":640,\"height\":245.10638297872342,\"tabOrder\":2}}],\"singleVisual\":{\"visualType\":\"donutChart\",\"projections\":{\"Category\":[{\"queryRef\":\"Marital Status.Marital Status\",\"active\":true}],\"Y\":[{\"queryRef\":\"Online Food Orders.Total Orders\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"o\",\"Entity\":\"Online Food Orders\",\"Type\":0},{\"Name\":\"m\",\"Entity\":\"Marital Status\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"o\"}},\"Property\":\"Total Orders\"},\"Name\":\"Online Food Orders.Total Orders\",\"NativeReferenceName\":\"Total Orders\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Marital Status\"},\"Name\":\"Marital Status.Marital Status\",\"NativeReferenceName\":\"Marital Status\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"o\"}},\"Property\":\"Total Orders\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 245.11,
+          "width": 640.00,
+          "x": 640.00,
+          "y": 175.08,
+          "z": 2.00
+        }
+      ],
+      "width": 1280.00
+    }
+  ]
+}

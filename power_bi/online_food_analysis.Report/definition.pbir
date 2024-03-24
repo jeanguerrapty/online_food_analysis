@@ -1,0 +1,9 @@
+{
+  "version": "1.0",
+  "datasetReference": {
+    "byPath": {
+      "path": "../online_food_analysis.Dataset"
+    },
+    "byConnection": null
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 585.04132258331379,
+            "y": 315.67109774064141
+          },
+          "nodeIndex": "Gender",
+          "nodeLineageTag": "3bd88dc0-3365-46f4-a1c5-8246808b60ff",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 10,
+            "y": 161.43569875435782
+          },
+          "nodeIndex": "Marital Status",
+          "nodeLineageTag": "d3175d73-7bb2-4a45-bd14-37750f6a0918",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 297.10805883584237,
+            "y": -10
+          },
+          "nodeIndex": "Occupation",
+          "nodeLineageTag": "f0d54cba-5ffc-41d4-af95-fa1080a83cab",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 297.06306277213406,
+            "y": 171.29097174007862
+          },
+          "nodeIndex": "Online Food Orders",
+          "nodeLineageTag": "03899d5f-8a2d-423c-b7b5-64418eac7751",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 5
+        },
+        {
+          "location": {
+            "x": 311.70349300928297,
+            "y": 495.63255412710134
+          },
+          "nodeIndex": "Studies",
+          "nodeLineageTag": "ab313aa4-2424-42e8-8e55-ea4bf574a575",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 4
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

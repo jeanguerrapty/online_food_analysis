@@ -1,0 +1,16 @@
+relationship e39aec26-b513-4545-b972-85cdfa24b5cb
+	fromColumn: 'Online Food Orders'.GenderID
+	toColumn: Gender.GenderID
+
+relationship e16f1c2c-dbbe-4c1c-aa05-60c2e2377552
+	fromColumn: 'Online Food Orders'.MaritalStatusID
+	toColumn: 'Marital Status'.MaritalStatusID
+
+relationship 3090ae66-c6bc-459f-8732-d7ed93c52d6a
+	fromColumn: 'Online Food Orders'.OccupationID
+	toColumn: Occupation.OccupationID
+
+relationship 2d06fd81-8b5c-4d40-a0cc-1b0233f267e8
+	fromColumn: 'Online Food Orders'.StudiesID
+	toColumn: Studies.StudiesID
+
