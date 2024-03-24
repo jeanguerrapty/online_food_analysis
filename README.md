@@ -25,4 +25,7 @@ The dataset is licensed under MIT License.
 # Tools Used
 - WSL
 - VS Studio Code
+- Python
+- Jupyter Notebooks
 - Power BI Desktop
+- Git / Github
